@@ -1,0 +1,14 @@
+name: Morning Message
+
+on:
+  schedule:
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Morning Message to Feishu
+        run: |
+          curl -X POST "https://open.feishu.cn/open-apis/bot/v2/hook/ae7241f8-4bf9-4e82-8edf-f9a26717da84" -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"老师早上好～☀️\n新的一天，传送门先到位，干活不迷路：\n🌟 师资导航（所有链接的总闸，讲义、行程、报备……找不到路就点它）\nhttps://www.kdocs.cn/wo/sl/v11797N0\n📌 每日行程汇报（次日行程，记得前一天 晚上21:00前 填好，别攒到睡前迷糊着赶作业）\nhttps://www.kdocs.cn/office/d/312887962611?share_id=F0KgmKCa6wPCPx&R=L1MvMTEx"}}'
