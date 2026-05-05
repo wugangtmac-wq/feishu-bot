@@ -11,11 +11,4 @@ jobs:
     steps:
       - name: Send message to Feishu
         run: |
-          curl -X POST "https://open.feishu.cn/open-apis/bot/v2/hook/ae7241f8-4bf9-4e82-8edf-f9a26717da84" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "msg_type": "text",
-              "content": {
-                "text": "师资导航（所有链接的"总闸"，讲义、行程、报备找到路就点它）\nhttps://www.kdocs.cn/wo/sl/v11797N0\n\n每日行程汇报（次日行程，记得前一天晚上21：00前填好，别攒到睡前迷糊着赶作业）\nhttps://www.kdocs.cn/office/d/312887962611?share_id=FOKgmkCa6wPCPx&R=1MvMTEx"
-              }
-            }'
+          curl -X POST "https://open.feishu.cn/open-apis/bot/v2/hook/ae7241f8-4bf9-4e82-8edf-f9a26717da84" -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"师资导航（所有链接的总闸，讲义、行程、报备找到路就点它）\nhttps://www.kdocs.cn/wo/sl/v11797N0\n\n每日行程汇报（次日行程，记得前一天晚上21:00前填好，别攒到睡前迷糊着赶作业）\nhttps://www.kdocs.cn/office/d/312887962611?share_id=FOKgmkCa6wPCPx&R=1MvMTEx"}}'
