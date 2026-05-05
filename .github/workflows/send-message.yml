@@ -1,0 +1,21 @@
+name: Send Daily Message
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Feishu
+        run: |
+          curl -X POST "https://open.feishu.cn/open-apis/bot/v2/hook/https://open.feishu.cn/open-apis/bot/v2/hook/ae7241f8-4bf9-4e82-8edf-f9a26717da84" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "msg_type": "text",
+              "content": {
+                "text": "老师们早上好！新的一天开始啦，今天也要加油哦~"
+              }
+            }'
