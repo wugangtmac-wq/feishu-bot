@@ -1,0 +1,14 @@
+name: Afternoon Message
+
+on:
+  schedule:
+    - cron: '20 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Afternoon Message to Feishu
+        run: |
+          curl -X POST "https://open.feishu.cn/open-apis/bot/v2/hook/ae7241f8-4bf9-4e82-8edf-f9a26717da84" -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"⏰ 下班倒计时！两件事别忘了收尾：\n\n📋 工作日报（坐班老师每日必填，别留到明天）\nhttps://www.kdocs.cn/office/d/312887962611?share_id=F0RytNxMuSaHfx&R=L1MvMTEx\n\n💡 面试真题反馈（课上遇到的好题随手丢进来，题库靠大家养）\nhttps://www.kdocs.cn/office/d/312887962611?share_id=F04k8BCgk2PzGG&R=L1MvMzk=\n\n📝 磨课记录顺手记，灵感不等人～\nhttps://www.kdocs.cn/office/d/312887962611?share_id=F0qhk95sgHdNRa&R=L1MvMTY3"}}'
